@@ -24,13 +24,9 @@ function playGame(humanChoice) {
     endCondition = humanScore >= 3 || computerScore >= 3;
     if(endCondition){
 
-        if(humanScore > computerScore){
-            roundTotalDisplay.textContent += "\nCONGRATULATIONS!!! You beat the computer!";
-
-        } else {
-            roundTotalDisplay.textContent += "\nSorry, the computer has won this time!";
-
-        }
+        roundTotalDisplay.textContent += humanScore > computerScore ?
+            "\nCONGRATULATIONS!!! You beat the computer!" :
+            "\nSorry, the computer has won this time!";
 
         roundNumber = 1;
         humanScore = 0;
@@ -48,64 +44,24 @@ function playRound(user, computer) {
 
     if(user === computer){
         roundTotalDisplay.textContent += draw;
+
     } else {
+        switch (user) {
+            case "rock":
+                computer == "paper" ? computerScore++: humanScore++;
+                break;
+    
+            case "paper":
+                computer == "scissors" ? computerScore++: humanScore++;
+                break;
+    
+            case "scissors":
+                computer == "rock" ? computerScore++: humanScore++;
+                break;
+        }
 
     }
 
-    switch (user) {
-        case "rock":
-            if (computer == "rock") {
-
-                roundTotalDisplay.textContent += draw;
-
-            } else if (computer == "paper") {
-
-                computerScore++;
-
-            } else {
-
-                humanScore++;
-
-            }
-
-            break;
-
-        case "paper":
-
-            if (computer == "rock") {
-                    
-                humanScore++;
-                
-            } else if (computer == "paper") {
-
-                roundTotalDisplay.textContent += draw;
-
-            } else {
-
-                computerScore++;
-
-            }
-
-            break;
-
-        case "scissors":
-            
-            if (computer == "rock") {
-                        
-                computerScore++;
-                
-            } else if (computer == "paper") {
-
-                humanScore++;
-
-            } else {
-
-                roundTotalDisplay.textContent += draw;
-
-            }
-        
-            break;
-    }
 }
 
 
