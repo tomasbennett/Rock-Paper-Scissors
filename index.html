@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link href="stylesheet.css" rel="stylesheet">
     <script defer src="script.js"></script>
 </head>
 <body>
-    <button type="button" onclick="playGame();">Click to play</button>
-    <button type="button" id="rock" class="playerChoice"></button>
-    <button type="button" id="paper" class="playerChoice"></button>
-    <button type="button" id="scissors" class="playerChoice"></button>
+    <!-- <button type="button" onclick="playGame();">Click to play</button> -->
+    <div class="score-board">
+        <div class="round-number">Start Game</div>
+
+        <div class="score-display">
+            <div>Human Score:</div>
+            <div class="human total">0</div>
+        </div>
+
+        <div class="score-display">
+            <div>Computer Score:</div>
+            <div class="computer total">0</div>
+        </div>
+
+    </div>
+    <div class="choices-container">
+        <button onclick="playGame(this.classList[1]);" class="choice rock">Rock</button>
+        <button onclick="playGame(this.classList[1]);" class="choice paper">Paper</button>
+        <button onclick="playGame(this.classList[1]);" class="choice scissors">Scissors</button>
+    </div>
+
 </body>
 </html>
